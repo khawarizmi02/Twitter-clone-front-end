@@ -6,8 +6,11 @@ const Page: React.FC = () => {
   const [password, setPassword] = useState<string>('');
 
   const handleSubmit = async (e: FormEvent) => {
+    console.log(username);
+    console.log(password);
+
     e.preventDefault();
-    const response = await fetch('./app/api/login', {
+    const response = await fetch('/api/login', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ username, password }),
@@ -34,7 +37,7 @@ const Page: React.FC = () => {
           onChange={(e) => setUsername(e.target.value)}
         />
         <input
-          type="password"
+          type="text"
           name="password"
           placeholder="Password"
           required
